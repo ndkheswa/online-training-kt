@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost/workloaddb
+    username: wolfpack
+    password: 9803843@ZZa
+
+    jpa:
+      properties:
+        hibernate: org.hibernate.dialect.PostgreSQL82Dialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+      hibernate:
+        naming:
+          physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+          implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+
+  cognito-domain: ${cognito_domain}
+
+  cognito:
+    redirect-uri: ${cognito_redirect_uri}
+    client-id: ${cognito_client_id}
+    client-secret: ${cognito_client_secret}
+    endpoint: https://${spring.cognito-domain}_auth_eu-west-1_amazoncognito_com
+    pool-id: ${cognito_pool_id}
+
